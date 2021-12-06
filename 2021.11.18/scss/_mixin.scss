@@ -1,0 +1,42 @@
+@mixin font-mont {
+  font-family: Montserrat, sans-serif;
+  color: $color-gray2;
+}
+
+@mixin  line-clamp($line: 1, $line-height: 1.2) {
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  line-height: $line-height;
+  -webkit-line-clamp: $line;
+  max-height: calc(1em * #{$line-height} * #{$line});
+} 
+
+// position 중앙정렬
+@mixin pos-center($align) {
+  position: absolute;
+ 
+  @if $align == 'vertical' {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  @else if $align == 'horizontal' {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translate(-50%);
+  }
+  @else if $align == 'both' {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}

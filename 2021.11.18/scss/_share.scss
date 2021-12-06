@@ -1,0 +1,68 @@
+* { padding: 0; margin: 0; box-sizing: border-box; }
+
+.ex-box {
+  padding: 80px 0;
+  .ex-tit {
+    margin-bottom: 20px;
+  }
+  .ex-window {
+    height: 50vh;
+    border: 1px solid black;
+    margin: 10px;
+  }
+  .box-parent {
+    height: inherit;
+  }
+}
+
+.ex-box {
+  // mixin ex1: 폰트
+  &.mixin-ex1 {
+    .tit {
+      @include font-mont;
+      // font-family: Montserrat;
+    }
+    .desc {
+      font-family: Montserrat;
+    }
+  }
+
+  &.mixin-ex2 {
+    .box {
+      margin-bottom: 20px;
+      &1 {
+        @include line-clamp(1, 1.2);
+      }
+      &2 {
+        @include line-clamp(2, 2);
+      }
+      &3 {
+        @include line-clamp(3, 1.2);
+      }
+    }
+  }
+
+  &.mixin-ex3 {
+    .box-parent {
+      position: relative;
+    }
+    
+    .box {
+      width: 50px;
+      height: 50px;
+
+      &-1 {
+        @include pos-center(both);
+        background-color: $color-gray1;
+      }
+      &-2 {
+        @include pos-center(vertical);
+        background-color: $color-gray2;
+      }
+      &-3 {
+        @include pos-center(horizontal);
+        background-color: $color-gray3;
+      }
+    }
+  }
+}
